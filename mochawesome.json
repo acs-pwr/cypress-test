@@ -1,0 +1,376 @@
+{
+  "stats": {
+    "suites": 4,
+    "tests": 8,
+    "passes": 4,
+    "pending": 0,
+    "failures": 4,
+    "testsRegistered": 8,
+    "passPercent": 50,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false,
+    "start": "2023-08-15T02:38:32.608Z",
+    "end": "2023-08-15T02:49:46.793Z",
+    "duration": 674185
+  },
+  "results": [
+    {
+      "uuid": "97c45cc9-3afc-405c-a9b4-195a44962b5c",
+      "title": "",
+      "fullFile": "cypress\\e2e\\tests\\firstTest2.spec.js",
+      "file": "cypress\\e2e\\tests\\firstTest2.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "dcbc39ef-b808-488d-934c-4a6b26d3ff7f",
+          "title": "API Test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should get user data from the API",
+              "fullTitle": "API Test should get user data from the API",
+              "timedOut": null,
+              "duration": 88,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Send a GET request to the API endpoint\ncy.request(\"GET\", \"https://jsonplaceholder.typicode.com/users/1\").should(response => {\n  // Assert the response status code is 200 (OK)\n  expect(response.status).to.eq(200);\n  // Assert the response body contains the expected data\n  expect(response.body).to.have.property(\"id\", 1);\n  expect(response.body).to.have.property(\"name\", \"Leanne Graham\");\n  expect(response.body).to.have.property(\"username\", \"Bret\");\n});",
+              "err": {},
+              "uuid": "0a7c4ee8-c639-489a-b100-5f5fbfea4c8b",
+              "parentUUID": "dcbc39ef-b808-488d-934c-4a6b26d3ff7f",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Should log in successfully with valid credentials",
+              "fullTitle": "API Test Should log in successfully with valid credentials",
+              "timedOut": null,
+              "duration": 597,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.request(\"POST\", Cypress.env(\"apiUrl\") + \"/api/login\", {\n  email: Cypress.env(\"username\"),\n  password: Cypress.env(\"password\")\n}).then(response => {\n  expect(response.status).to.equal(200);\n  expect(response.body).to.have.property(\"token\");\n});",
+              "err": {
+                "message": "CypressError: `cy.request()` failed on:\n\nhttps://reqres.in/api/login\n\nThe response we received from your web server was:\n\n  > 400: Bad Request\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: POST\nURL: https://reqres.in/api/login\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/12.17.3 Chrome/106.0.5249.51 Electron/21.0.0 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 43\n}\nBody: {\"email\":\"eve@reqres.in\",\"password\":\"city\"}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 400 - Bad Request\nHeaders: {\n  \"date\": \"Tue, 15 Aug 2023 02:38:34 GMT\",\n  \"content-type\": \"application/json; charset=utf-8\",\n  \"content-length\": \"26\",\n  \"connection\": \"keep-alive\",\n  \"x-powered-by\": \"Express\",\n  \"access-control-allow-origin\": \"*\",\n  \"etag\": \"W/\\\"1a-EGIcyP6BIiCXl5Gb1aph5CGf4VQ\\\"\",\n  \"via\": \"1.1 vegur\",\n  \"cf-cache-status\": \"DYNAMIC\",\n  \"report-to\": \"{\\\"endpoints\\\":[{\\\"url\\\":\\\"https:\\\\/\\\\/a.nel.cloudflare.com\\\\/report\\\\/v3?s=4jC21B%2FYfP6xIR4IncJBhmdzLoVMbHhqvYlnLTbm%2F29VUPCK8cXnGGtKT8I%2BoIDWEF5w3iaZl2TJzH9wVVuo4A7WrhR5SyoCmS0op9Yh4bbSNTcRcsmvsgEkew%3D%3D\\\"}],\\\"group\\\":\\\"cf-nel\\\",\\\"max_age\\\":604800}\",\n  \"nel\": \"{\\\"success_fraction\\\":0,\\\"report_to\\\":\\\"cf-nel\\\",\\\"max_age\\\":604800}\",\n  \"server\": \"cloudflare\",\n  \"cf-ray\": \"7f6e0fe46f503e62-SIN\"\n}\nBody: {\n  \"error\": \"user not found\"\n}\n\n\nhttps://on.cypress.io/request",
+                "estack": "CypressError: `cy.request()` failed on:\n\nhttps://reqres.in/api/login\n\nThe response we received from your web server was:\n\n  > 400: Bad Request\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: POST\nURL: https://reqres.in/api/login\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/12.17.3 Chrome/106.0.5249.51 Electron/21.0.0 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 43\n}\nBody: {\"email\":\"eve@reqres.in\",\"password\":\"city\"}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 400 - Bad Request\nHeaders: {\n  \"date\": \"Tue, 15 Aug 2023 02:38:34 GMT\",\n  \"content-type\": \"application/json; charset=utf-8\",\n  \"content-length\": \"26\",\n  \"connection\": \"keep-alive\",\n  \"x-powered-by\": \"Express\",\n  \"access-control-allow-origin\": \"*\",\n  \"etag\": \"W/\\\"1a-EGIcyP6BIiCXl5Gb1aph5CGf4VQ\\\"\",\n  \"via\": \"1.1 vegur\",\n  \"cf-cache-status\": \"DYNAMIC\",\n  \"report-to\": \"{\\\"endpoints\\\":[{\\\"url\\\":\\\"https:\\\\/\\\\/a.nel.cloudflare.com\\\\/report\\\\/v3?s=4jC21B%2FYfP6xIR4IncJBhmdzLoVMbHhqvYlnLTbm%2F29VUPCK8cXnGGtKT8I%2BoIDWEF5w3iaZl2TJzH9wVVuo4A7WrhR5SyoCmS0op9Yh4bbSNTcRcsmvsgEkew%3D%3D\\\"}],\\\"group\\\":\\\"cf-nel\\\",\\\"max_age\\\":604800}\",\n  \"nel\": \"{\\\"success_fraction\\\":0,\\\"report_to\\\":\\\"cf-nel\\\",\\\"max_age\\\":604800}\",\n  \"server\": \"cloudflare\",\n  \"cf-ray\": \"7f6e0fe46f503e62-SIN\"\n}\nBody: {\n  \"error\": \"user not found\"\n}\n\n\nhttps://on.cypress.io/request\n    at <unknown> (http://localhost:51589/__cypress/runner/cypress_runner.js:149327:80)\n    at tryCatcher (http://localhost:51589/__cypress/runner/cypress_runner.js:18744:23)\n    at Promise._settlePromiseFromHandler (http://localhost:51589/__cypress/runner/cypress_runner.js:16679:31)\n    at Promise._settlePromise (http://localhost:51589/__cypress/runner/cypress_runner.js:16736:18)\n    at Promise._settlePromise0 (http://localhost:51589/__cypress/runner/cypress_runner.js:16781:10)\n    at Promise._settlePromises (http://localhost:51589/__cypress/runner/cypress_runner.js:16861:18)\n    at _drainQueueStep (http://localhost:51589/__cypress/runner/cypress_runner.js:13451:12)\n    at _drainQueue (http://localhost:51589/__cypress/runner/cypress_runner.js:13444:9)\n    at ../../node_modules/bluebird/js/release/async.js.Async._drainQueues (http://localhost:51589/__cypress/runner/cypress_runner.js:13460:5)\n    at Async.drainQueues (http://localhost:51589/__cypress/runner/cypress_runner.js:13330:14)\nFrom Your Spec Code:\n    at Context.eval (webpack:///./cypress/e2e/tests/firstTest2.spec.js:17:7)",
+                "diff": null
+              },
+              "uuid": "3397259d-0db9-49c3-a933-33e1d0903d92",
+              "parentUUID": "dcbc39ef-b808-488d-934c-4a6b26d3ff7f",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "0a7c4ee8-c639-489a-b100-5f5fbfea4c8b"
+          ],
+          "failures": [
+            "3397259d-0db9-49c3-a933-33e1d0903d92"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 685,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "93c6fe14-1c1f-42ea-8018-3ca0d0936fe3",
+      "title": "",
+      "fullFile": "cypress\\e2e\\tests\\firstTest.spec.js",
+      "file": "cypress\\e2e\\tests\\firstTest.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "9c29df9d-c637-4725-84c6-66b4608511e5",
+          "title": "API Test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should get user data from the API",
+              "fullTitle": "API Test should get user data from the API",
+              "timedOut": null,
+              "duration": 792,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Send a GET request to the API endpoint\ncy.request(\"GET\", \"https://jsonplaceholder.typicode.com/users/1\").should(response => {\n  // Assert the response status code is 200 (OK)\n  expect(response.status).to.eq(200);\n  // Assert the response body contains the expected data\n  expect(response.body).to.have.property(\"id\", 1);\n  expect(response.body).to.have.property(\"name\", \"Leanne Graham\");\n  expect(response.body).to.have.property(\"username\", \"Bret\");\n});",
+              "err": {},
+              "uuid": "3fdc76b9-0b19-4528-bf62-078d90a5af51",
+              "parentUUID": "9c29df9d-c637-4725-84c6-66b4608511e5",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Should log in successfully with valid credentials",
+              "fullTitle": "API Test Should log in successfully with valid credentials",
+              "timedOut": null,
+              "duration": 837,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.request(\"POST\", Cypress.env(\"apiUrl\") + \"/api/login\", {\n  email: Cypress.env(\"username\"),\n  password: Cypress.env(\"password\")\n}).then(response => {\n  expect(response.status).to.equal(200);\n  expect(response.body).to.have.property(\"token\");\n});",
+              "err": {
+                "message": "CypressError: `cy.request()` failed on:\n\nhttps://reqres.in/api/login\n\nThe response we received from your web server was:\n\n  > 400: Bad Request\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: POST\nURL: https://reqres.in/api/login\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/12.17.3 Chrome/106.0.5249.51 Electron/21.0.0 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 43\n}\nBody: {\"email\":\"eve@reqres.in\",\"password\":\"city\"}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 400 - Bad Request\nHeaders: {\n  \"date\": \"Tue, 15 Aug 2023 02:49:42 GMT\",\n  \"content-type\": \"application/json; charset=utf-8\",\n  \"content-length\": \"26\",\n  \"connection\": \"keep-alive\",\n  \"x-powered-by\": \"Express\",\n  \"access-control-allow-origin\": \"*\",\n  \"etag\": \"W/\\\"1a-EGIcyP6BIiCXl5Gb1aph5CGf4VQ\\\"\",\n  \"via\": \"1.1 vegur\",\n  \"cf-cache-status\": \"DYNAMIC\",\n  \"report-to\": \"{\\\"endpoints\\\":[{\\\"url\\\":\\\"https:\\\\/\\\\/a.nel.cloudflare.com\\\\/report\\\\/v3?s=gSyJ4qgBrXhfT%2FFwNqUrbPVbZyryjFU14grzPDrObQmk8LqmwarS3oR8WmxeCV9cBauwPsd%2BjZB%2Ffs%2BVHlqqFk7Uo0IrMUozhkkVZi0P0PVaVuLNALGvTdjKRQ%3D%3D\\\"}],\\\"group\\\":\\\"cf-nel\\\",\\\"max_age\\\":604800}\",\n  \"nel\": \"{\\\"success_fraction\\\":0,\\\"report_to\\\":\\\"cf-nel\\\",\\\"max_age\\\":604800}\",\n  \"server\": \"cloudflare\",\n  \"cf-ray\": \"7f6e203849ce3fb9-SIN\"\n}\nBody: {\n  \"error\": \"user not found\"\n}\n\n\nhttps://on.cypress.io/request",
+                "estack": "CypressError: `cy.request()` failed on:\n\nhttps://reqres.in/api/login\n\nThe response we received from your web server was:\n\n  > 400: Bad Request\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: POST\nURL: https://reqres.in/api/login\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/12.17.3 Chrome/106.0.5249.51 Electron/21.0.0 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 43\n}\nBody: {\"email\":\"eve@reqres.in\",\"password\":\"city\"}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 400 - Bad Request\nHeaders: {\n  \"date\": \"Tue, 15 Aug 2023 02:49:42 GMT\",\n  \"content-type\": \"application/json; charset=utf-8\",\n  \"content-length\": \"26\",\n  \"connection\": \"keep-alive\",\n  \"x-powered-by\": \"Express\",\n  \"access-control-allow-origin\": \"*\",\n  \"etag\": \"W/\\\"1a-EGIcyP6BIiCXl5Gb1aph5CGf4VQ\\\"\",\n  \"via\": \"1.1 vegur\",\n  \"cf-cache-status\": \"DYNAMIC\",\n  \"report-to\": \"{\\\"endpoints\\\":[{\\\"url\\\":\\\"https:\\\\/\\\\/a.nel.cloudflare.com\\\\/report\\\\/v3?s=gSyJ4qgBrXhfT%2FFwNqUrbPVbZyryjFU14grzPDrObQmk8LqmwarS3oR8WmxeCV9cBauwPsd%2BjZB%2Ffs%2BVHlqqFk7Uo0IrMUozhkkVZi0P0PVaVuLNALGvTdjKRQ%3D%3D\\\"}],\\\"group\\\":\\\"cf-nel\\\",\\\"max_age\\\":604800}\",\n  \"nel\": \"{\\\"success_fraction\\\":0,\\\"report_to\\\":\\\"cf-nel\\\",\\\"max_age\\\":604800}\",\n  \"server\": \"cloudflare\",\n  \"cf-ray\": \"7f6e203849ce3fb9-SIN\"\n}\nBody: {\n  \"error\": \"user not found\"\n}\n\n\nhttps://on.cypress.io/request\n    at <unknown> (http://localhost:51762/__cypress/runner/cypress_runner.js:149327:80)\n    at tryCatcher (http://localhost:51762/__cypress/runner/cypress_runner.js:18744:23)\n    at Promise._settlePromiseFromHandler (http://localhost:51762/__cypress/runner/cypress_runner.js:16679:31)\n    at Promise._settlePromise (http://localhost:51762/__cypress/runner/cypress_runner.js:16736:18)\n    at Promise._settlePromise0 (http://localhost:51762/__cypress/runner/cypress_runner.js:16781:10)\n    at Promise._settlePromises (http://localhost:51762/__cypress/runner/cypress_runner.js:16861:18)\n    at _drainQueueStep (http://localhost:51762/__cypress/runner/cypress_runner.js:13451:12)\n    at _drainQueue (http://localhost:51762/__cypress/runner/cypress_runner.js:13444:9)\n    at ../../node_modules/bluebird/js/release/async.js.Async._drainQueues (http://localhost:51762/__cypress/runner/cypress_runner.js:13460:5)\n    at Async.drainQueues (http://localhost:51762/__cypress/runner/cypress_runner.js:13330:14)\nFrom Your Spec Code:\n    at Context.eval (webpack:///./cypress/e2e/tests/firstTest.spec.js:17:7)",
+                "diff": null
+              },
+              "uuid": "601f4052-deb9-4b87-9f31-08a47abad235",
+              "parentUUID": "9c29df9d-c637-4725-84c6-66b4608511e5",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "3fdc76b9-0b19-4528-bf62-078d90a5af51"
+          ],
+          "failures": [
+            "601f4052-deb9-4b87-9f31-08a47abad235"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 1629,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "3d5fc646-71d5-4704-ae5b-f4dd59c42f6b",
+      "title": "",
+      "fullFile": "cypress\\e2e\\tests\\firstTest2.spec.js",
+      "file": "cypress\\e2e\\tests\\firstTest2.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "58420647-fab6-43ef-ac78-007a19452c6d",
+          "title": "API Test 2",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should get user data from the API",
+              "fullTitle": "API Test 2 should get user data from the API",
+              "timedOut": null,
+              "duration": 90,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Send a GET request to the API endpoint\ncy.request(\"GET\", \"https://jsonplaceholder.typicode.com/users/1\").should(response => {\n  // Assert the response status code is 200 (OK)\n  expect(response.status).to.eq(200);\n  // Assert the response body contains the expected data\n  expect(response.body).to.have.property(\"id\", 1);\n  expect(response.body).to.have.property(\"name\", \"Leanne Graham\");\n  expect(response.body).to.have.property(\"username\", \"Bret\");\n});",
+              "err": {},
+              "uuid": "6f1b79c9-ed4d-41fa-b122-eca2ac84bdc6",
+              "parentUUID": "58420647-fab6-43ef-ac78-007a19452c6d",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Should log in successfully with valid credentials",
+              "fullTitle": "API Test 2 Should log in successfully with valid credentials",
+              "timedOut": null,
+              "duration": 593,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.request(\"POST\", Cypress.env(\"apiUrl\") + \"/api/login\", {\n  email: Cypress.env(\"username\"),\n  password: Cypress.env(\"password\")\n}).then(response => {\n  expect(response.status).to.equal(200);\n  expect(response.body).to.have.property(\"token\");\n});",
+              "err": {
+                "message": "CypressError: `cy.request()` failed on:\n\nhttps://reqres.in/api/login\n\nThe response we received from your web server was:\n\n  > 400: Bad Request\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: POST\nURL: https://reqres.in/api/login\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/12.17.3 Chrome/106.0.5249.51 Electron/21.0.0 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 43\n}\nBody: {\"email\":\"eve@reqres.in\",\"password\":\"city\"}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 400 - Bad Request\nHeaders: {\n  \"date\": \"Tue, 15 Aug 2023 02:49:44 GMT\",\n  \"content-type\": \"application/json; charset=utf-8\",\n  \"content-length\": \"26\",\n  \"connection\": \"keep-alive\",\n  \"x-powered-by\": \"Express\",\n  \"access-control-allow-origin\": \"*\",\n  \"etag\": \"W/\\\"1a-EGIcyP6BIiCXl5Gb1aph5CGf4VQ\\\"\",\n  \"via\": \"1.1 vegur\",\n  \"cf-cache-status\": \"DYNAMIC\",\n  \"report-to\": \"{\\\"endpoints\\\":[{\\\"url\\\":\\\"https:\\\\/\\\\/a.nel.cloudflare.com\\\\/report\\\\/v3?s=e6ovlcYeuUp12LyPrMgtuOr6hgQRvollnn3zNJFQZ236mmqLQ8wSkTd9e3yMA%2Bq4%2F4AvH%2B6%2BDD1eg6R3Rs7DIF4Ed4T6FReKEaxAggKEjcFlfNw854%2B2A7Fdng%3D%3D\\\"}],\\\"group\\\":\\\"cf-nel\\\",\\\"max_age\\\":604800}\",\n  \"nel\": \"{\\\"success_fraction\\\":0,\\\"report_to\\\":\\\"cf-nel\\\",\\\"max_age\\\":604800}\",\n  \"server\": \"cloudflare\",\n  \"cf-ray\": \"7f6e2044bfe53fb9-SIN\"\n}\nBody: {\n  \"error\": \"user not found\"\n}\n\n\nhttps://on.cypress.io/request",
+                "estack": "CypressError: `cy.request()` failed on:\n\nhttps://reqres.in/api/login\n\nThe response we received from your web server was:\n\n  > 400: Bad Request\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: POST\nURL: https://reqres.in/api/login\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/12.17.3 Chrome/106.0.5249.51 Electron/21.0.0 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 43\n}\nBody: {\"email\":\"eve@reqres.in\",\"password\":\"city\"}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 400 - Bad Request\nHeaders: {\n  \"date\": \"Tue, 15 Aug 2023 02:49:44 GMT\",\n  \"content-type\": \"application/json; charset=utf-8\",\n  \"content-length\": \"26\",\n  \"connection\": \"keep-alive\",\n  \"x-powered-by\": \"Express\",\n  \"access-control-allow-origin\": \"*\",\n  \"etag\": \"W/\\\"1a-EGIcyP6BIiCXl5Gb1aph5CGf4VQ\\\"\",\n  \"via\": \"1.1 vegur\",\n  \"cf-cache-status\": \"DYNAMIC\",\n  \"report-to\": \"{\\\"endpoints\\\":[{\\\"url\\\":\\\"https:\\\\/\\\\/a.nel.cloudflare.com\\\\/report\\\\/v3?s=e6ovlcYeuUp12LyPrMgtuOr6hgQRvollnn3zNJFQZ236mmqLQ8wSkTd9e3yMA%2Bq4%2F4AvH%2B6%2BDD1eg6R3Rs7DIF4Ed4T6FReKEaxAggKEjcFlfNw854%2B2A7Fdng%3D%3D\\\"}],\\\"group\\\":\\\"cf-nel\\\",\\\"max_age\\\":604800}\",\n  \"nel\": \"{\\\"success_fraction\\\":0,\\\"report_to\\\":\\\"cf-nel\\\",\\\"max_age\\\":604800}\",\n  \"server\": \"cloudflare\",\n  \"cf-ray\": \"7f6e2044bfe53fb9-SIN\"\n}\nBody: {\n  \"error\": \"user not found\"\n}\n\n\nhttps://on.cypress.io/request\n    at <unknown> (http://localhost:51762/__cypress/runner/cypress_runner.js:149327:80)\n    at tryCatcher (http://localhost:51762/__cypress/runner/cypress_runner.js:18744:23)\n    at Promise._settlePromiseFromHandler (http://localhost:51762/__cypress/runner/cypress_runner.js:16679:31)\n    at Promise._settlePromise (http://localhost:51762/__cypress/runner/cypress_runner.js:16736:18)\n    at Promise._settlePromise0 (http://localhost:51762/__cypress/runner/cypress_runner.js:16781:10)\n    at Promise._settlePromises (http://localhost:51762/__cypress/runner/cypress_runner.js:16861:18)\n    at _drainQueueStep (http://localhost:51762/__cypress/runner/cypress_runner.js:13451:12)\n    at _drainQueue (http://localhost:51762/__cypress/runner/cypress_runner.js:13444:9)\n    at ../../node_modules/bluebird/js/release/async.js.Async._drainQueues (http://localhost:51762/__cypress/runner/cypress_runner.js:13460:5)\n    at Async.drainQueues (http://localhost:51762/__cypress/runner/cypress_runner.js:13330:14)\nFrom Your Spec Code:\n    at Context.eval (webpack:///./cypress/e2e/tests/firstTest2.spec.js:17:7)",
+                "diff": null
+              },
+              "uuid": "5a2a7af1-62d8-47a9-b3b6-989262c460e8",
+              "parentUUID": "58420647-fab6-43ef-ac78-007a19452c6d",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "6f1b79c9-ed4d-41fa-b122-eca2ac84bdc6"
+          ],
+          "failures": [
+            "5a2a7af1-62d8-47a9-b3b6-989262c460e8"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 683,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "e68844d4-c938-4e55-a179-39b801bc402c",
+      "title": "",
+      "fullFile": "cypress\\e2e\\tests\\firstTest.spec.js",
+      "file": "cypress\\e2e\\tests\\firstTest.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "c6390cd6-77ab-4d84-b654-8f521f52f24d",
+          "title": "API Test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should get user data from the API",
+              "fullTitle": "API Test should get user data from the API",
+              "timedOut": null,
+              "duration": 716,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Send a GET request to the API endpoint\ncy.request(\"GET\", \"https://jsonplaceholder.typicode.com/users/1\").should(response => {\n  // Assert the response status code is 200 (OK)\n  expect(response.status).to.eq(200);\n  // Assert the response body contains the expected data\n  expect(response.body).to.have.property(\"id\", 1);\n  expect(response.body).to.have.property(\"name\", \"Leanne Graham\");\n  expect(response.body).to.have.property(\"username\", \"Bret\");\n});",
+              "err": {},
+              "uuid": "1b7516b1-a3dc-4758-8225-05ad099022c7",
+              "parentUUID": "c6390cd6-77ab-4d84-b654-8f521f52f24d",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Should log in successfully with valid credentials",
+              "fullTitle": "API Test Should log in successfully with valid credentials",
+              "timedOut": null,
+              "duration": 764,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.request(\"POST\", Cypress.env(\"apiUrl\") + \"/api/login\", {\n  email: Cypress.env(\"username\"),\n  password: Cypress.env(\"password\")\n}).then(response => {\n  expect(response.status).to.equal(200);\n  expect(response.body).to.have.property(\"token\");\n});",
+              "err": {
+                "message": "CypressError: `cy.request()` failed on:\n\nhttps://reqres.in/api/login\n\nThe response we received from your web server was:\n\n  > 400: Bad Request\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: POST\nURL: https://reqres.in/api/login\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/12.17.3 Chrome/106.0.5249.51 Electron/21.0.0 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 43\n}\nBody: {\"email\":\"eve@reqres.in\",\"password\":\"city\"}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 400 - Bad Request\nHeaders: {\n  \"date\": \"Tue, 15 Aug 2023 02:38:32 GMT\",\n  \"content-type\": \"application/json; charset=utf-8\",\n  \"content-length\": \"26\",\n  \"connection\": \"keep-alive\",\n  \"x-powered-by\": \"Express\",\n  \"access-control-allow-origin\": \"*\",\n  \"etag\": \"W/\\\"1a-EGIcyP6BIiCXl5Gb1aph5CGf4VQ\\\"\",\n  \"via\": \"1.1 vegur\",\n  \"cf-cache-status\": \"DYNAMIC\",\n  \"report-to\": \"{\\\"endpoints\\\":[{\\\"url\\\":\\\"https:\\\\/\\\\/a.nel.cloudflare.com\\\\/report\\\\/v3?s=6rcU2QCMSeFuQmNaIAZHMF28JTYLJvvDfnE7wDeIiPnJXt62%2FUhNv4GKo6M32Sa7gxNyvjvX4wPGi8i46YdMDHZRdkjQ3ijpcDrxHBgvoowEHU1YaIvYnAFBhg%3D%3D\\\"}],\\\"group\\\":\\\"cf-nel\\\",\\\"max_age\\\":604800}\",\n  \"nel\": \"{\\\"success_fraction\\\":0,\\\"report_to\\\":\\\"cf-nel\\\",\\\"max_age\\\":604800}\",\n  \"server\": \"cloudflare\",\n  \"cf-ray\": \"7f6e0fd8383b3e62-SIN\"\n}\nBody: {\n  \"error\": \"user not found\"\n}\n\n\nhttps://on.cypress.io/request",
+                "estack": "CypressError: `cy.request()` failed on:\n\nhttps://reqres.in/api/login\n\nThe response we received from your web server was:\n\n  > 400: Bad Request\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: POST\nURL: https://reqres.in/api/login\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/12.17.3 Chrome/106.0.5249.51 Electron/21.0.0 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 43\n}\nBody: {\"email\":\"eve@reqres.in\",\"password\":\"city\"}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 400 - Bad Request\nHeaders: {\n  \"date\": \"Tue, 15 Aug 2023 02:38:32 GMT\",\n  \"content-type\": \"application/json; charset=utf-8\",\n  \"content-length\": \"26\",\n  \"connection\": \"keep-alive\",\n  \"x-powered-by\": \"Express\",\n  \"access-control-allow-origin\": \"*\",\n  \"etag\": \"W/\\\"1a-EGIcyP6BIiCXl5Gb1aph5CGf4VQ\\\"\",\n  \"via\": \"1.1 vegur\",\n  \"cf-cache-status\": \"DYNAMIC\",\n  \"report-to\": \"{\\\"endpoints\\\":[{\\\"url\\\":\\\"https:\\\\/\\\\/a.nel.cloudflare.com\\\\/report\\\\/v3?s=6rcU2QCMSeFuQmNaIAZHMF28JTYLJvvDfnE7wDeIiPnJXt62%2FUhNv4GKo6M32Sa7gxNyvjvX4wPGi8i46YdMDHZRdkjQ3ijpcDrxHBgvoowEHU1YaIvYnAFBhg%3D%3D\\\"}],\\\"group\\\":\\\"cf-nel\\\",\\\"max_age\\\":604800}\",\n  \"nel\": \"{\\\"success_fraction\\\":0,\\\"report_to\\\":\\\"cf-nel\\\",\\\"max_age\\\":604800}\",\n  \"server\": \"cloudflare\",\n  \"cf-ray\": \"7f6e0fd8383b3e62-SIN\"\n}\nBody: {\n  \"error\": \"user not found\"\n}\n\n\nhttps://on.cypress.io/request\n    at <unknown> (http://localhost:51589/__cypress/runner/cypress_runner.js:149327:80)\n    at tryCatcher (http://localhost:51589/__cypress/runner/cypress_runner.js:18744:23)\n    at Promise._settlePromiseFromHandler (http://localhost:51589/__cypress/runner/cypress_runner.js:16679:31)\n    at Promise._settlePromise (http://localhost:51589/__cypress/runner/cypress_runner.js:16736:18)\n    at Promise._settlePromise0 (http://localhost:51589/__cypress/runner/cypress_runner.js:16781:10)\n    at Promise._settlePromises (http://localhost:51589/__cypress/runner/cypress_runner.js:16861:18)\n    at _drainQueueStep (http://localhost:51589/__cypress/runner/cypress_runner.js:13451:12)\n    at _drainQueue (http://localhost:51589/__cypress/runner/cypress_runner.js:13444:9)\n    at ../../node_modules/bluebird/js/release/async.js.Async._drainQueues (http://localhost:51589/__cypress/runner/cypress_runner.js:13460:5)\n    at Async.drainQueues (http://localhost:51589/__cypress/runner/cypress_runner.js:13330:14)\nFrom Your Spec Code:\n    at Context.eval (webpack:///./cypress/e2e/tests/firstTest.spec.js:17:7)",
+                "diff": null
+              },
+              "uuid": "d9239ccf-75d6-4829-aaf6-b77c515e3046",
+              "parentUUID": "c6390cd6-77ab-4d84-b654-8f521f52f24d",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "1b7516b1-a3dc-4758-8225-05ad099022c7"
+          ],
+          "failures": [
+            "d9239ccf-75d6-4829-aaf6-b77c515e3046"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 1480,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/results/mochawesome",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
