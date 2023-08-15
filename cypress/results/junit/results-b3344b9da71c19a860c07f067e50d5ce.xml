@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="1.332" tests="2" failures="1">
+  <testsuite name="Root Suite" timestamp="2023-08-15T08:17:35" tests="0" file="cypress\e2e\tests\firstTest.spec.js" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="API Test" timestamp="2023-08-15T08:17:35" tests="2" time="1.310" failures="1">
+    <testcase name="API Test should get user data from the API" time="0.295" classname="should get user data from the API">
+    </testcase>
+    <testcase name="API Test Should log in successfully with valid credentials" time="0.000" classname="Should log in successfully with valid credentials">
+      <failure message="`cy.request()` failed on:
+
+https://reqres.in/api/login
+
+The response we received from your web server was:
+
+  &gt; 400: Bad Request
+
+This was considered a failure because the status code was not `2xx` or `3xx`.
+
+If you do not want status codes to cause failures pass the option: `failOnStatusCode: false`
+
+-----------------------------------------------------------
+
+The request we sent was:
+
+Method: POST
+URL: https://reqres.in/api/login
+Headers: {
+  &quot;Connection&quot;: &quot;keep-alive&quot;,
+  &quot;user-agent&quot;: &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/12.17.3 Chrome/106.0.5249.51 Electron/21.0.0 Safari/537.36&quot;,
+  &quot;accept&quot;: &quot;*/*&quot;,
+  &quot;accept-encoding&quot;: &quot;gzip, deflate&quot;,
+  &quot;content-type&quot;: &quot;application/json&quot;,
+  &quot;content-length&quot;: 43
+}
+Body: {&quot;email&quot;:&quot;eve@reqres.in&quot;,&quot;password&quot;:&quot;city&quot;}
+
+-----------------------------------------------------------
+
+The response we got was:
+
+Status: 400 - Bad Request
+Headers: {
+  &quot;date&quot;: &quot;Tue, 15 Aug 2023 08:17:35 GMT&quot;,
+  &quot;content-type&quot;: &quot;application/json; charset=utf-8&quot;,
+  &quot;content-length&quot;: &quot;26&quot;,
+  &quot;connection&quot;: &quot;keep-alive&quot;,
+  &quot;x-powered-by&quot;: &quot;Express&quot;,
+  &quot;access-control-allow-origin&quot;: &quot;*&quot;,
+  &quot;etag&quot;: &quot;W/\&quot;1a-EGIcyP6BIiCXl5Gb1aph5CGf4VQ\&quot;&quot;,
+  &quot;via&quot;: &quot;1.1 vegur&quot;,
+  &quot;cf-cache-status&quot;: &quot;DYNAMIC&quot;,
+  &quot;report-to&quot;: &quot;{\&quot;endpoints\&quot;:[{\&quot;url\&quot;:\&quot;https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=Z7jRpigJXdCs2KHHV%2BQLRMhOEoZjp1%2BVmtLAM7Eel3iCfxKoqXzEsBBPyWrNTKyXOMUJAem5dQFvm5jMf89BYv45VjYpHCMQbIllpsbdgGzaiIONuE8BoqQf781LedAiyT0NHQ4o8A%3D%3D\&quot;}],\&quot;group\&quot;:\&quot;cf-nel\&quot;,\&quot;max_age\&quot;:604800}&quot;,
+  &quot;nel&quot;: &quot;{\&quot;success_fraction\&quot;:0,\&quot;report_to\&quot;:\&quot;cf-nel\&quot;,\&quot;max_age\&quot;:604800}&quot;,
+  &quot;server&quot;: &quot;cloudflare&quot;,
+  &quot;cf-ray&quot;: &quot;7f70007f9cd79fc2-SIN&quot;
+}
+Body: {
+  &quot;error&quot;: &quot;user not found&quot;
+}
+
+
+https://on.cypress.io/request" type="CypressError"><![CDATA[CypressError: `cy.request()` failed on:
+
+https://reqres.in/api/login
+
+The response we received from your web server was:
+
+  > 400: Bad Request
+
+This was considered a failure because the status code was not `2xx` or `3xx`.
+
+If you do not want status codes to cause failures pass the option: `failOnStatusCode: false`
+
+-----------------------------------------------------------
+
+The request we sent was:
+
+Method: POST
+URL: https://reqres.in/api/login
+Headers: {
+  "Connection": "keep-alive",
+  "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/12.17.3 Chrome/106.0.5249.51 Electron/21.0.0 Safari/537.36",
+  "accept": "*/*",
+  "accept-encoding": "gzip, deflate",
+  "content-type": "application/json",
+  "content-length": 43
+}
+Body: {"email":"eve@reqres.in","password":"city"}
+
+-----------------------------------------------------------
+
+The response we got was:
+
+Status: 400 - Bad Request
+Headers: {
+  "date": "Tue, 15 Aug 2023 08:17:35 GMT",
+  "content-type": "application/json; charset=utf-8",
+  "content-length": "26",
+  "connection": "keep-alive",
+  "x-powered-by": "Express",
+  "access-control-allow-origin": "*",
+  "etag": "W/\"1a-EGIcyP6BIiCXl5Gb1aph5CGf4VQ\"",
+  "via": "1.1 vegur",
+  "cf-cache-status": "DYNAMIC",
+  "report-to": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=Z7jRpigJXdCs2KHHV%2BQLRMhOEoZjp1%2BVmtLAM7Eel3iCfxKoqXzEsBBPyWrNTKyXOMUJAem5dQFvm5jMf89BYv45VjYpHCMQbIllpsbdgGzaiIONuE8BoqQf781LedAiyT0NHQ4o8A%3D%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}",
+  "nel": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}",
+  "server": "cloudflare",
+  "cf-ray": "7f70007f9cd79fc2-SIN"
+}
+Body: {
+  "error": "user not found"
+}
+
+
+https://on.cypress.io/request
+    at <unknown> (http://localhost:51690/__cypress/runner/cypress_runner.js:149327:80)
+    at tryCatcher (http://localhost:51690/__cypress/runner/cypress_runner.js:18744:23)
+    at Promise._settlePromiseFromHandler (http://localhost:51690/__cypress/runner/cypress_runner.js:16679:31)
+    at Promise._settlePromise (http://localhost:51690/__cypress/runner/cypress_runner.js:16736:18)
+    at Promise._settlePromise0 (http://localhost:51690/__cypress/runner/cypress_runner.js:16781:10)
+    at Promise._settlePromises (http://localhost:51690/__cypress/runner/cypress_runner.js:16861:18)
+    at _drainQueueStep (http://localhost:51690/__cypress/runner/cypress_runner.js:13451:12)
+    at _drainQueue (http://localhost:51690/__cypress/runner/cypress_runner.js:13444:9)
+    at ../../node_modules/bluebird/js/release/async.js.Async._drainQueues (http://localhost:51690/__cypress/runner/cypress_runner.js:13460:5)
+    at Async.drainQueues (http://localhost:51690/__cypress/runner/cypress_runner.js:13330:14)
+From Your Spec Code:
+    at Context.eval (webpack:///./cypress/e2e/tests/firstTest.spec.js:17:7)]]></failure>
+    </testcase>
+  </testsuite>
+</testsuites>
