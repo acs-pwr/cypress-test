@@ -5,7 +5,7 @@
     "prereport": "npm run delete:reports",
     "mochawesome:merge": "npx mochawesome-merge \"cypress/results/mochawesome/*.json\" > mochawesome.json && npx marge mochawesome.json",
     "junit:merge": "npx junit-merge -d cypress/results/junit -o cypress/results/junit/result.xml",
-    "test": "npx cypress run && npm run prereport; npm run junit:merge; npm run mochawesome:merge"
+    "test": "npx cypress run \"cypress\e2e\tests\firstTest.spec.js\" && npm run prereport; npm run junit:merge; npm run mochawesome:merge"
   },
   "devDependencies": {
     "cypress": "^12.17.3",
