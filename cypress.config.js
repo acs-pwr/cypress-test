@@ -9,11 +9,11 @@ module.exports = defineConfig({
   viewportHeight: 1080,
   viewportWidth: 1920,
   video: false,
-  env: {
-    username: "",
-    password: "",
-    apiUrl: "",
-  },
+  // env: {
+  //   username: "",
+  //   password: "",
+  //   apiUrl: "",
+  // },
 
   e2e: {
     specPattern: "cypress/e2e/**/*.{js,jsx,ts,tsx}",
